@@ -5,7 +5,7 @@ This is an example of a code that allows you to split your long swagger.yaml fil
 * Swagger model definition - for example `/api/definitions/UsersDefinition.yaml`
 * Swagger path description - for example `/api/paths/UsersPath.yaml`
 
-Then we use the gulp script, that watches for changes in these files and automatically compiles the swagger.yaml file which is consumed by SwaggerExpress. This allows you to break your swagger implementation into easily maintainable files:
+Then we use the gulp script, that watches for changes in these files and automatically compiles the swagger.yaml file which is consumed by SwaggerExpress. This allows you to break your swagger implementation into several files that are easier to maintain:
 
 ![alt Folder Structure](https://raw.github.com/matoushavlena/swagger-express-api-splitter/master/screenshots/folder-structure.png)
 
