@@ -19,6 +19,6 @@ Then we use the gulp script, that watches for changes in these files and automat
 
 After that, you can open http://localhost:3000/docs/ and you should see your Swagger documentation.
 
-![alt Swagger Docs](https://raw.github.com/matoushavlena/swagger-express-api-splitter/master/screenshots/swagger-docs.png =800x)
+![alt Swagger Docs](https://raw.github.com/matoushavlena/swagger-express-api-splitter/master/screenshots/swagger-docs.png)
 
-![alt Folder Structure](https://raw.github.com/matoushavlena/swagger-express-api-splitter/master/screenshots/folder-structure.png =150x)
+![alt Folder Structure](https://raw.github.com/matoushavlena/swagger-express-api-splitter/master/screenshots/folder-structure.png)
