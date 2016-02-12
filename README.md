@@ -1,17 +1,24 @@
-This README.md file is displayed on your project page. You should edit this 
-file to describe your project, including instructions for building and 
-running the project, pointers to the license under which you are making the 
-project available, and anything else you think would be useful for others to
-know.
+#swagger-express-api-splitter
 
-We have created an empty license.txt file for you. Well, actually, it says,
-"<Replace this text with the license you've chosen for your project.>" We 
-recommend you edit this and include text for license terms under which you're
-making your code available. A good resource for open source licenses is the 
-[Open Source Initiative](http://opensource.org/).
+This is an example of a code that allows you to split your long swagger.yaml file into multiple yaml files following the API pattern of your app. For each of the REST API endpoint, you keep 3 files:
+* JS implementation - for example `/api/controllers/UsersController.js`
+* Swagger model definition - for example `/api/definitions/UsersDefinition.yaml`
+* Swagger path description - for example `/api/paths/UsersPath.yaml`
 
-Be sure to update your project's profile with a short description and 
-eye-catching graphic.
+Then we use the gulp script, that watches for changes in these files and automatically compiles the swagger.yaml file which is consumed by SwaggerExpress.
 
-Finally, consider defining some sprints and work items in Track & Plan to give 
-interested developers a sense of your cadence and upcoming enhancements.
+#Dependencies
+* swagger-express-mw
+* swagger-tools
+* gulp
+
+#Demo
+* `npm install`
+* `gulp`
+* `node app.js`
+
+After that, you can open http://localhost:3000/docs/ and you should see your Swagger documentation.
+
+![alt Swagger Docs](https://raw.github.com/matoushavlena/swagger-express-api-splitter/master/screenshots/swagger-docs.png)
+
+![alt Folder Structure](https://raw.github.com/matoushavlena/swagger-express-api-splitter/master/screenshots/folder-structure.png)
