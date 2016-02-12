@@ -1,0 +1,19 @@
+{
+  "author": "matous@havlena.net",
+  "dependencies": {
+    "body-parser": "^1.14.0",
+    "express": "4.13.3",
+    "swagger-express-mw": "^0.1.0",
+    "swagger-tools": "^0.9.7"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "load-grunt-tasks": "^3.3.0"
+  },
+  "repository": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "main": "app.js"
+}

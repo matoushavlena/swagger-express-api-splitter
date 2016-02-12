@@ -1,0 +1,9 @@
+  GenericObjectResponse:
+    type: object
+  ErrorResponse:
+    required:
+      - error
+    type: object
+    properties:
+      error:
+        type: string

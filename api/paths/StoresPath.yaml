@@ -1,0 +1,85 @@
+  /stores:
+    x-swagger-router-controller: StoresController
+    get:
+      tags:
+      	- Stores
+      description: Return a list of stores
+      operationId: stores_get
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/StoreList" 
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      tags:
+      	- Stores
+      description: Create a new store
+      operationId: stores_post
+      parameters:
+        - name: store
+          in: body
+          description: Store to add
+          required: true
+          schema:
+            $ref: "#/definitions/Store"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Store"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /stores/{id}:
+    x-swagger-router-controller: StoresController
+    put:
+      tags:
+      	- Stores
+      description: Update a store
+      operationId: stores_put
+      parameters:
+        - name: id
+          in: path
+          description: Store ID
+          required: true
+          type: integer
+        - name: store
+          in: body
+          description: Store to update
+          required: true
+          schema:
+            $ref: "#/definitions/Store"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Store"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    delete:
+      tags:
+      	- Stores
+      description: Delete a store
+      operationId: stores_delete
+      parameters:
+        - name: id
+          in: path
+          description: Store ID
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GenericObjectResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"

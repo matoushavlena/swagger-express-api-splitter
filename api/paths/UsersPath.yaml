@@ -1,0 +1,85 @@
+  /users:
+    x-swagger-router-controller: UsersController
+    get:
+      tags:
+      	- Users
+      description: Return a list of users
+      operationId: users_get
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/UserList"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      tags:
+      	- Users
+      description: Create a new user
+      operationId: users_post
+      parameters:
+        - name: user
+          in: body
+          description: User to add
+          required: true
+          schema:
+            $ref: "#/definitions/User"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/User"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /users/{id}:
+    x-swagger-router-controller: UsersController
+    put:
+      tags:
+      	- Users
+      description: Update a user
+      operationId: users_put
+      parameters:
+        - name: id
+          in: path
+          description: User ID
+          required: true
+          type: integer
+        - name: user
+          in: body
+          description: User to update
+          required: true
+          schema:
+            $ref: "#/definitions/User"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/User"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    delete:
+      tags:
+      	- Users
+      description: Delete a user
+      operationId: users_delete
+      parameters:
+        - name: id
+          in: path
+          description: User ID
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GenericObjectResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"

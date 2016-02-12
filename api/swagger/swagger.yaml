@@ -1,0 +1,249 @@
+swagger: "2.0"
+info:
+  version: "0.2"
+  title: swagger-express-api-splitter
+basePath: /
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+tags:
+- name: "Users"
+  description: "Your users"
+- name: "Stores"
+  description: "Your company stores"
+paths:
+  /stores:
+    x-swagger-router-controller: StoresController
+    get:
+      tags:
+      	- Stores
+      description: Return a list of stores
+      operationId: stores_get
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/StoreList" 
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      tags:
+      	- Stores
+      description: Create a new store
+      operationId: stores_post
+      parameters:
+        - name: store
+          in: body
+          description: Store to add
+          required: true
+          schema:
+            $ref: "#/definitions/Store"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Store"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /stores/{id}:
+    x-swagger-router-controller: StoresController
+    put:
+      tags:
+      	- Stores
+      description: Update a store
+      operationId: stores_put
+      parameters:
+        - name: id
+          in: path
+          description: Store ID
+          required: true
+          type: integer
+        - name: store
+          in: body
+          description: Store to update
+          required: true
+          schema:
+            $ref: "#/definitions/Store"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Store"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    delete:
+      tags:
+      	- Stores
+      description: Delete a store
+      operationId: stores_delete
+      parameters:
+        - name: id
+          in: path
+          description: Store ID
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GenericObjectResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /users:
+    x-swagger-router-controller: UsersController
+    get:
+      tags:
+      	- Users
+      description: Return a list of users
+      operationId: users_get
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/UserList"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      tags:
+      	- Users
+      description: Create a new user
+      operationId: users_post
+      parameters:
+        - name: user
+          in: body
+          description: User to add
+          required: true
+          schema:
+            $ref: "#/definitions/User"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/User"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /users/{id}:
+    x-swagger-router-controller: UsersController
+    put:
+      tags:
+      	- Users
+      description: Update a user
+      operationId: users_put
+      parameters:
+        - name: id
+          in: path
+          description: User ID
+          required: true
+          type: integer
+        - name: user
+          in: body
+          description: User to update
+          required: true
+          schema:
+            $ref: "#/definitions/User"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/User"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    delete:
+      tags:
+      	- Users
+      description: Delete a user
+      operationId: users_delete
+      parameters:
+        - name: id
+          in: path
+          description: User ID
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GenericObjectResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /swagger:
+    x-swagger-pipe: swagger_raw
+definitions:
+  Store:
+    type: object
+    required:
+      - id
+      - name
+      - country_code 
+      - city
+    properties:
+      id:
+        type: "integer"
+        readOnly: true
+        description: Store ID
+      name:
+        type: "string"
+        description: Store name
+      country_code:
+        type: "string"
+        description: 3-letter country code (e.g. USA)
+      city:
+        type: "string"
+        description: "City where the store is located"
+  StoreList:
+    type: array
+    items: 
+      $ref: "#/definitions/Store"
+  User:
+    type: object
+    required:
+      - id
+      - first_name
+      - last_name
+      - email
+    properties:
+      id:
+        type: "integer"
+        description: User ID
+      first_name:
+        type: "string"
+        description: User's first name
+      last_name:
+        type: "string"
+        description: User's last name
+      email:
+        type: "string"
+        format: "email"
+        description: User's email
+  UserList:
+    type: array
+    items:
+      $ref: "#/definitions/User"
+  GenericObjectResponse:
+    type: object
+  ErrorResponse:
+    required:
+      - error
+    type: object
+    properties:
+      error:
+        type: string
