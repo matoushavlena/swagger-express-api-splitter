@@ -17,8 +17,11 @@ Then we use the gulp script, that watches for changes in these files and automat
 * `gulp`
 * `node app.js`
 
-After that, you can open http://localhost:3000/docs/ and you should see your Swagger documentation.
+After that, you can open **http://localhost:3000/docs/** and you should see your Swagger documentation.
 
 ![alt Swagger Docs](https://raw.github.com/matoushavlena/swagger-express-api-splitter/master/screenshots/swagger-docs.png)
+
+#Additional info
+The swagger.yaml file is automatically generated using gulp. Gulp is watching for changes and compiles the file on fly. Everytime time you do changes in API folder, you need to restart the node.js server. You can use [nodemon](https://github.com/remy/nodemon) to simplify this process.
 
 ![alt Folder Structure](https://raw.github.com/matoushavlena/swagger-express-api-splitter/master/screenshots/folder-structure.png)
